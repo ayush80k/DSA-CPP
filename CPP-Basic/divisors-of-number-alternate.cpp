@@ -5,7 +5,8 @@
 using namespace std;
 vector<int> get_divisors(int num){
     vector<int> divisors;
-    for(int i=1;i<=sqrt(num);i++){
+    //instead of square root sqrt(num) we check if i*i <=num , it will be same as checking for squqare root but take less time. O(sqrt num)
+    for(int i=1;i*i<=num;i++){
         if(num%i == 0){
             divisors.push_back(i);
             if(num/i != i){
