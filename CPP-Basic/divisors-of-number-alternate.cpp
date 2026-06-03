@@ -1,8 +1,28 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 using namespace std;
+vector<int> get_divisors(int num){
+    vector<int> divisors;
+    for(int i=1;i<=sqrt(num);i++){
+        if(num%i == 0){
+            divisors.push_back(i);
+            if(num/i != i){
+                divisors.push_back(num/i);
+            }
+        }
+    }
+    return divisors;
+}
 int main() {
-    /*All divisors of a number : numbers that completely divide a given value (includes itself)
+    vector<int> divisors = get_divisors(36);
+    cout<<"Divisor pairs: ";
+    for(int i : divisors){
+        cout<<i<<" ";
+    }
+    return 0;
+}
+/*All divisors of a number : numbers that completely divide a given value (includes itself)
     Alternate way: divisors are in pairs, after we reach the square root of a specific number, its divisor pairs repeat in reverse order
     Example:
     For 36 -> 
@@ -15,14 +35,3 @@ int main() {
     up to down -> 1-6
     down to up -> 6 to 36
     */
-    int num;
-    cin >> num;
-    cout<<"Divisors of "<<num<<" are:"<<endl;
-    for(int i=1;i<=sqrt(num);i++){
-        if(num%i == 0){
-            cout<<i<<" ";
-            (num/i != i)?cout<<num/i<<" ":cout<<"";
-        }
-    }
-    return 0;
-}
