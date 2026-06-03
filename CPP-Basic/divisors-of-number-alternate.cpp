@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <algorithm> 
 using namespace std;
 vector<int> get_divisors(int num){
     vector<int> divisors;
@@ -16,6 +17,7 @@ vector<int> get_divisors(int num){
 }
 int main() {
     vector<int> divisors = get_divisors(36);
+    sort(divisors.begin(),divisors.end());
     cout<<"Divisor pairs: ";
     for(int i : divisors){
         cout<<i<<" ";
